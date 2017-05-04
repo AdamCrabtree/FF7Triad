@@ -19,6 +19,19 @@ namespace FF7Triad
         Deck enemyDeck = new Deck();
         Card[][] playBoard;
         private int _numCards = 0;
+        private int _numEnemyCards = 0;
+        public int numEnemyCards
+        {
+            get { return _numEnemyCards; }
+            set
+            {
+                _numEnemyCards = value;
+                if (_numEnemyCards == 5)
+                {
+                    pEnemyCardSelect.Hide();
+                }
+            }
+        }
         public int numCards
         {
             get { return _numCards; }
@@ -53,30 +66,59 @@ namespace FF7Triad
             int j = 0;
             int offset2 = 0;
             int offset = 0;
+
+
+
             foreach (Card myCard in cardChooseDeck.myDeck)
             {
                 cards[i] = new PictureBox();
                 cards[i].Location = new Point(0 + offset, 0);
                 cards[i].Size = new Size(100, 127);
                 cards[i].Image = myCard.cardImage;
-                cards[i].Click += new EventHandler((s, e)=>cardClick(s, e, myCard));
+                cards[i].Click += new EventHandler((s, e) => cardClick(s, e, myCard));
                 pCardSelect.Controls.Add(cards[i]);
                 i++;
                 offset = offset + 100;
             }
-            foreach(Card myCard in enemyCardChooseDeck.myDeck)
+
+            foreach (Card myCard in enemyCardChooseDeck.myDeck)
             {
-                enemyCards[i] = new PictureBox();
-                enemyCards[i].Location = new Point(0 + offset, 0);
-                enemyCards[i].Size = new Size(100, 127);
-                enemyCards[i].Image = myCard.cardImage;
-                enemyCards[i].Click += new EventHandler((s, e) => enemyCardClick(s, e, myCard));
+                enemyCards[j] = new PictureBox();
+                enemyCards[j].Location = new Point(0 + offset2, 0);
+                enemyCards[j].Size = new Size(100, 127);
+                enemyCards[j].Image = myCard.cardImage;
+                enemyCards[j].Click += new EventHandler((s, e) => enemyCardClick(s, e, myCard));
+                pEnemyCardSelect.Controls.Add(enemyCards[j]);
+                j++;
+                offset2 = offset2 + 100;
             }
         }
 
+
         private void enemyCardClick(object s, EventArgs e, Card myCard)
         {
-            throw new NotImplementedException();
+            enemyDeck.myDeck.Add(myCard);
+            if (numEnemyCards == 0)
+            {
+                pbEnemyCard.Image = myCard.cardImage;
+            }
+            else if(numEnemyCards == 1)
+            {
+                pbEnemyCard2.Image = myCard.cardImage;
+            }
+            else if(numEnemyCards == 2)
+            {
+                pbEnemyCard3.Image = myCard.cardImage;
+            }
+            else if (numEnemyCards == 3)
+            {
+                pbEnemyCard4.Image = myCard.cardImage;
+            }
+            else if (numEnemyCards == 4)
+            {
+                pbEnemyCard5.Image = myCard.cardImage;
+            }
+            numEnemyCards++;
         }
 
         private void cardClick(object sender, EventArgs e, Card myCard)

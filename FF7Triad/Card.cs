@@ -10,7 +10,6 @@ namespace FF7Triad
     public class Card
     {
         public Image cardImage;
-        public 
         public string name { get; set; }
         public int attackUp { get; set; }
         public int attackDown { get; set; }

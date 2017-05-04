@@ -50,6 +50,7 @@
             this.pbEnemyCard2 = new System.Windows.Forms.PictureBox();
             this.pbEnemyCard = new System.Windows.Forms.PictureBox();
             this.pbGameBoard = new System.Windows.Forms.PictureBox();
+            this.pEnemyCardSelect = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLocation9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLocation8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLocation7)).BeginInit();
@@ -263,11 +264,19 @@
             this.pbGameBoard.TabIndex = 0;
             this.pbGameBoard.TabStop = false;
             // 
+            // pEnemyCardSelect
+            // 
+            this.pEnemyCardSelect.Location = new System.Drawing.Point(118, 12);
+            this.pEnemyCardSelect.Name = "pEnemyCardSelect";
+            this.pEnemyCardSelect.Size = new System.Drawing.Size(1668, 143);
+            this.pEnemyCardSelect.TabIndex = 12;
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.pEnemyCardSelect);
             this.Controls.Add(this.pbLocation9);
             this.Controls.Add(this.pbPlayerCard5);
             this.Controls.Add(this.pbLocation8);
@@ -338,6 +347,7 @@
         private System.Windows.Forms.PictureBox pbLocation9;
         private System.Windows.Forms.PictureBox pbLocation8;
         private System.Windows.Forms.PictureBox pbLocation7;
+        private System.Windows.Forms.Panel pEnemyCardSelect;
     }
 }
 
