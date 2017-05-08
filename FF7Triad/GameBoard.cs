@@ -181,18 +181,45 @@ namespace FF7Triad
             {
 
                 playBoard[0,0] = selectedCard;
-                pbLocation1.Image = selectedCard.cardImage;
-                if (selectedCard.attackRight > playBoard[0,1].attackLeft && !(selectedCard.isEnemyCard==playBoard[0,1].isEnemyCard) )
+                if (selectedCard.isEnemyCard == false)
                 {
-                    if (playBoard[0, 1].isEnemyCard == true)
-                    {
-
-                    }
-                    
+                    pbLocation1.Image = selectedCard.cardImage;
                 }
-                if (selectedCard.attackDown > playBoard[1,0].attackUp && !(selectedCard.isEnemyCard == playBoard[1,0].isEnemyCard))
+                else
+                    pbLocation1.Image = selectedCard.enemyCardImage;
+                if (!(playBoard[0, 1] == null))
                 {
-                    //to be implemented
+                    if (selectedCard.attackRight > playBoard[0, 1].attackLeft && !(selectedCard.isEnemyCard == playBoard[0, 1].isEnemyCard))
+                    {
+                        if (playBoard[0, 1].isEnemyCard == true)
+                        {
+                            pbLocation2.Image = playBoard[0, 1].cardImage;
+                            playBoard[0, 1].isEnemyCard = false;
+                        }
+                        else
+                        {
+                            pbLocation2.Image = playBoard[0, 1].enemyCardImage;
+                            playBoard[0, 1].isEnemyCard = true;
+                        }
+                    }
+                }
+                if (!(playBoard[1, 0] == null))
+                {
+
+
+                    if (selectedCard.attackDown > playBoard[1, 0].attackUp && !(selectedCard.isEnemyCard == playBoard[1, 0].isEnemyCard))
+                    {
+                        if (playBoard[1, 0].isEnemyCard == true)
+                        {
+                            pbLocation4.Image = playBoard[1, 0].cardImage;
+                            playBoard[1, 0].isEnemyCard = false;
+                        }
+                        else
+                        {
+                            pbLocation4.Image = playBoard[1, 0].enemyCardImage;
+                            playBoard[1, 0].isEnemyCard = true;
+                        }
+                    }
                 }
                 selectedCard = null;
             }
@@ -203,15 +230,37 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[0,1] = selectedCard;
-                pbLocation2.Image = selectedCard.cardImage;
-                if (selectedCard.attackRight > playBoard[0,0].attackLeft && !(selectedCard.isEnemyCard == playBoard[0,0].isEnemyCard))
+                playBoard[0, 1] = selectedCard;
+                if (selectedCard.isEnemyCard == false)
                 {
-                    //to be implemented
+                    pbLocation2.Image = selectedCard.cardImage;
                 }
-                if (selectedCard.attackDown > playBoard[1,1].attackUp && !(selectedCard.isEnemyCard == playBoard[1,1].isEnemyCard))
+                else
+                    pbLocation2.Image = selectedCard.enemyCardImage;
+                if (!(playBoard[0, 0] == null))
                 {
-                    //to be implemented
+
+                    if (selectedCard.attackLeft > playBoard[0, 0].attackRight && !(selectedCard.isEnemyCard == playBoard[0, 0].isEnemyCard))
+                    {
+                        if (playBoard[0, 0].isEnemyCard == true)
+                        {
+                            pbLocation1.Image = playBoard[0, 0].cardImage;
+                            playBoard[0, 0].isEnemyCard = false;
+                        }
+                        else
+                        {
+                            pbLocation1.Image = playBoard[0, 0].enemyCardImage;
+                            playBoard[0, 0].isEnemyCard = true;
+                        }
+                    }
+                }
+                if (!(playBoard[1, 1] == null))
+                {
+
+                    if (selectedCard.attackDown > playBoard[1, 1].attackUp && !(selectedCard.isEnemyCard == playBoard[1, 1].isEnemyCard))
+                    {
+                        //to be implemented
+                    }
                 }
                 selectedCard = null;
             }

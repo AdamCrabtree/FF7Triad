@@ -24,6 +24,9 @@ namespace FF7Triad
             caterchipillar.cardImage = (FF7Triad.Properties.Resources.rcaterchipillar);
             cokatrice.cardImage = (FF7Triad.Properties.Resources.rcockatrice);
             funguar.cardImage = (FF7Triad.Properties.Resources.rfunguar);
+            bitebug.enemyCardImage = (FF7Triad.Properties.Resources.rebitebug);
+            blobra.enemyCardImage = (FF7Triad.Properties.Resources.reblobra);
+            bloodsoul.enemyCardImage = (FF7Triad.Properties.Resources.rebloodsoul);
             bitebug.attackDown = 3;
             bitebug.attackUp = 1;
             bitebug.attackLeft = 5;
@@ -61,6 +64,9 @@ namespace FF7Triad
             caterchipillar.cardImage = (FF7Triad.Properties.Resources.rcaterchipillar);
             cokatrice.cardImage = (FF7Triad.Properties.Resources.rcockatrice);
             funguar.cardImage = (FF7Triad.Properties.Resources.rfunguar);
+            bitebug.enemyCardImage = (FF7Triad.Properties.Resources.rebitebug);
+            blobra.enemyCardImage = (FF7Triad.Properties.Resources.reblobra);
+            bloodsoul.enemyCardImage = (FF7Triad.Properties.Resources.rebloodsoul);
             bitebug.isEnemyCard = true;
             blobra.isEnemyCard = true;
             bloodsoul.isEnemyCard = true;
