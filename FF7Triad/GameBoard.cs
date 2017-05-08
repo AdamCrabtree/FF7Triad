@@ -17,7 +17,7 @@ namespace FF7Triad
         Card selectedCard;
         Deck playerDeck = new Deck();
         Deck enemyDeck = new Deck();
-        Card[][] playBoard;
+        Card[,] playBoard = new Card[3, 3];
         private int _numCards = 0;
         private int _numEnemyCards = 0;
         public int numEnemyCards
@@ -59,7 +59,7 @@ namespace FF7Triad
             Deck cardChooseDeck = new FF7Triad.Deck();
             Deck enemyCardChooseDeck = new FF7Triad.Deck();
             cardChooseDeck.generateDeck();
-            enemyCardChooseDeck.generateDeck();
+            enemyCardChooseDeck.generateEnemyDeck();
             PictureBox[] enemyCards = new PictureBox[cardChooseDeck.myDeck.Count];
             PictureBox[] cards = new PictureBox[cardChooseDeck.myDeck.Count];
             int i = 0;
@@ -172,6 +172,7 @@ namespace FF7Triad
             selectedCard = playerDeck.myDeck.ElementAt(4);
         }
 
+
   
         private void pbLocation1_Click(object sender, EventArgs e)
         {
@@ -179,13 +180,17 @@ namespace FF7Triad
             if (!(selectedCard == null))
             {
 
-                playBoard[0][0] = selectedCard;
+                playBoard[0,0] = selectedCard;
                 pbLocation1.Image = selectedCard.cardImage;
-                if (selectedCard.attackRight > playBoard[0][1].attackLeft)
+                if (selectedCard.attackRight > playBoard[0,1].attackLeft && !(selectedCard.isEnemyCard==playBoard[0,1].isEnemyCard) )
                 {
-                    //to be implemented
+                    if (playBoard[0, 1].isEnemyCard == true)
+                    {
+
+                    }
+                    
                 }
-                if (selectedCard.attackDown > playBoard[1][0].attackUp)
+                if (selectedCard.attackDown > playBoard[1,0].attackUp && !(selectedCard.isEnemyCard == playBoard[1,0].isEnemyCard))
                 {
                     //to be implemented
                 }
@@ -198,13 +203,13 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[0][1] = selectedCard;
+                playBoard[0,1] = selectedCard;
                 pbLocation2.Image = selectedCard.cardImage;
-                if (selectedCard.attackRight > playBoard[0][0].attackLeft)
+                if (selectedCard.attackRight > playBoard[0,0].attackLeft && !(selectedCard.isEnemyCard == playBoard[0,0].isEnemyCard))
                 {
                     //to be implemented
                 }
-                if (selectedCard.attackDown > playBoard[1][1].attackUp)
+                if (selectedCard.attackDown > playBoard[1,1].attackUp && !(selectedCard.isEnemyCard == playBoard[1,1].isEnemyCard))
                 {
                     //to be implemented
                 }
@@ -216,18 +221,18 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[0][2] = selectedCard;
+                playBoard[0,2] = selectedCard;
                 pbLocation3.Image = selectedCard.cardImage;
-                if (!(playBoard[0][1] == null))
+                if (!(playBoard[0,1] == null))
                 {
-                    if (selectedCard.attackLeft > playBoard[0][1].attackRight)
+                    if (selectedCard.attackLeft > playBoard[0,1].attackRight && !(selectedCard.isEnemyCard == playBoard[0,1].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[1][2] == null))
+                if (!(playBoard[1,2] == null))
                 {
-                    if (selectedCard.attackDown > playBoard[1][2].attackUp)
+                    if (selectedCard.attackDown > playBoard[1,2].attackUp && !(selectedCard.isEnemyCard == playBoard[1,2].isEnemyCard))
                     {
 
                     }
@@ -241,25 +246,25 @@ namespace FF7Triad
             if (!(selectedCard == null))
             {
 
-                playBoard[1][0] = selectedCard;
+                playBoard[1,0] = selectedCard;
                 pbLocation4.Image = selectedCard.cardImage;
-                if (!(playBoard[2][0] == null))
+                if (!(playBoard[2,0] == null))
                 {
-                    if (selectedCard.attackDown>playBoard[2][0].attackUp)
+                    if (selectedCard.attackDown>playBoard[2, 0].attackUp && !(selectedCard.isEnemyCard == playBoard[2, 0].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[1][1] == null))
+                if (!(playBoard[1, 1] == null))
                 {
-                    if (selectedCard.attackRight > playBoard[1][1].attackLeft)
+                    if (selectedCard.attackRight > playBoard[1, 1].attackLeft && !(selectedCard.isEnemyCard == playBoard[1, 1].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[0][0] == null))
+                if (!(playBoard[0, 0] == null))
                 {
-                    if (selectedCard.attackUp > playBoard[0][0].attackDown)
+                    if (selectedCard.attackUp > playBoard[0, 0].attackDown && !(selectedCard.isEnemyCard == playBoard[0, 0].isEnemyCard))
                     {
 
                     }
@@ -273,32 +278,32 @@ namespace FF7Triad
             if (!(selectedCard == null))
             {
 
-                playBoard[1][1] = selectedCard;
+                playBoard[1, 1] = selectedCard;
                 pbLocation5.Image = selectedCard.cardImage;
-                if(!(playBoard[0][1]==null))
+                if(!(playBoard[0,1]==null))
                 {
-                    if (selectedCard.attackUp > playBoard[0][1].attackDown)
+                    if (selectedCard.attackUp > playBoard[0, 1].attackDown && !(selectedCard.isEnemyCard == playBoard[0, 1].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[1][0] == null))
+                if (!(playBoard[1, 0] == null))
                 {
-                    if (selectedCard.attackLeft > playBoard[1][0].attackRight)
+                    if (selectedCard.attackLeft > playBoard[1, 0].attackRight && !(selectedCard.isEnemyCard == playBoard[1, 0].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[2][1] == null))
+                if (!(playBoard[2, 1] == null))
                 {
-                    if (selectedCard.attackDown > playBoard[2][1].attackUp)
+                    if (selectedCard.attackDown > playBoard[2, 1].attackUp && !(selectedCard.isEnemyCard == playBoard[2, 1].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[1][2] == null))
+                if (!(playBoard[1, 2] == null))
                 {
-                    if (selectedCard.attackRight > playBoard[1][2].attackLeft)
+                    if (selectedCard.attackRight > playBoard[1, 2].attackLeft && !(selectedCard.isEnemyCard == playBoard[1, 2].isEnemyCard))
                     {
 
                     }
@@ -312,26 +317,26 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[1][2] = selectedCard;
+                playBoard[1, 2] = selectedCard;
                 pbLocation6.Image = selectedCard.cardImage;
-                if (!(playBoard[1][1] == null))
+                if (!(playBoard[1, 1] == null))
                 {
-                    if (selectedCard.attackLeft > playBoard[1][1].attackRight)
+                    if (selectedCard.attackLeft > playBoard[1, 1].attackRight && !(selectedCard.isEnemyCard == playBoard[1, 1].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[0][2]==null))
+                if (!(playBoard[0,2]==null))
                 {
-                    if (selectedCard.attackUp > playBoard[0][2].attackDown)
+                    if (selectedCard.attackUp > playBoard[0, 2].attackDown && !(selectedCard.isEnemyCard == playBoard[0,2].isEnemyCard))
                     {
 
                     }
 
                 }
-                if (!(playBoard[2][2] == null))
+                if (!(playBoard[2, 2] == null))
                 {
-                    if (selectedCard.attackDown > playBoard[2][2].attackUp)
+                    if (selectedCard.attackDown > playBoard[2, 2].attackUp && !(selectedCard.isEnemyCard == playBoard[2, 2].isEnemyCard))
                     {
 
                     }
@@ -346,17 +351,17 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[2][0] = selectedCard;
+                playBoard[2, 0] = selectedCard;
                 pbLocation7.Image = selectedCard.cardImage;
-                if (!(playBoard[1][0] == null)){
-                    if (selectedCard.attackUp > playBoard[1][0].attackDown)
+                if (!(playBoard[1, 0] == null)){
+                    if (selectedCard.attackUp > playBoard[1, 0].attackDown && !(selectedCard.isEnemyCard == playBoard[1,0].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[2][1]==null))
+                if (!(playBoard[2, 1]==null))
                 {
-                    if (selectedCard.attackLeft > playBoard[2][1].attackRight)
+                    if (selectedCard.attackLeft > playBoard[2, 1].attackRight && !(selectedCard.isEnemyCard == playBoard[2, 1].isEnemyCard))
                     {
 
                     }
@@ -369,26 +374,26 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[2][1] = selectedCard;
+                playBoard[2, 1] = selectedCard;
                 pbLocation8.Image = selectedCard.cardImage;
-                if (!(playBoard[2][0] == null))
+                if (!(playBoard[2, 0] == null))
                 {
-                    if (selectedCard.attackLeft > playBoard[2][0].attackRight)
+                    if (selectedCard.attackLeft > playBoard[2, 0].attackRight && !(selectedCard.isEnemyCard == playBoard[2, 0].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[2][2] == null))
+                if (!(playBoard[2, 2] == null))
                 {
-                    if (selectedCard.attackRight > playBoard[2][2].attackLeft)
+                    if (selectedCard.attackRight > playBoard[2, 2].attackLeft && !(selectedCard.isEnemyCard == playBoard[2, 2].isEnemyCard))
                     {
 
                     }
                 }
 
-                if (!(playBoard[1][1] == null))
+                if (!(playBoard[1, 1] == null))
                 {
-                    if (selectedCard.attackUp > playBoard[1][1].attackDown)
+                    if (selectedCard.attackUp > playBoard[1, 1].attackDown && !(selectedCard.isEnemyCard == playBoard[1, 1].isEnemyCard))
                     {
 
                     }   
@@ -403,24 +408,53 @@ namespace FF7Triad
         {
             if (!(selectedCard == null))
             {
-                playBoard[2][2] = selectedCard;
+                playBoard[2, 2] = selectedCard;
                 pbLocation9.Image = selectedCard.cardImage;
-                if (!(playBoard[1][2]==null))
+                if (!(playBoard[1, 2]==null))
                 {
-                    if (selectedCard.attackUp > playBoard[1][2].attackDown)
+                    if (selectedCard.attackUp > playBoard[1,2].attackDown && !(selectedCard.isEnemyCard == playBoard[1, 2].isEnemyCard))
                     {
 
                     }
                 }
-                if (!(playBoard[2][1]==null))
+                if (!(playBoard[2, 1]==null))
                 {
-                    if (selectedCard.attackLeft > playBoard[2][1].attackRight)
+                    if (selectedCard.attackLeft > playBoard[2, 1].attackRight && !(selectedCard.isEnemyCard == playBoard[2,1].isEnemyCard))
                     {
 
                     }
                 }
                 selectedCard = null;
             }
+        }
+
+        private void pbEnemyCard_Click(object sender, EventArgs e)
+        {
+            selectedCard = enemyDeck.myDeck.ElementAt(0);
+        }
+
+        private void pbEnemyCard2_Click(object sender, EventArgs e)
+        {
+            selectedCard = enemyDeck.myDeck.ElementAt(1);
+
+        }
+
+        private void pbEnemyCard3_Click(object sender, EventArgs e)
+        {
+            selectedCard = enemyDeck.myDeck.ElementAt(2);
+
+        }
+
+        private void pbEnemyCard4_Click(object sender, EventArgs e)
+        {
+            selectedCard = enemyDeck.myDeck.ElementAt(3);
+
+        }
+
+        private void pbEnemyCard5_Click(object sender, EventArgs e)
+        {
+            selectedCard = enemyDeck.myDeck.ElementAt(4);
+
         }
     }
 }

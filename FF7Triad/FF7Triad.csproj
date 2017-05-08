@@ -88,9 +88,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\cardSlotPicture.PNG" />
+    <Content Include="Resources\rebitebug.jpg" />
+    <Content Include="Resources\reblobra.jpg" />
     <Content Include="Resources\rblobra.jpg" />
     <Content Include="Resources\rbitebug.jpg" />
+    <Content Include="Resources\rebloodsoul.jpg" />
     <Content Include="Resources\rbloodsoul.jpg" />
+    <Content Include="Resources\recaterchipillar.jpg" />
     <Content Include="Resources\rcaterchipillar.jpg" />
     <Content Include="Resources\rcockatrice.jpg" />
     <Content Include="Resources\rfastitocalon-f.jpg" />

@@ -222,6 +222,7 @@
             this.pbEnemyCard5.Size = new System.Drawing.Size(100, 127);
             this.pbEnemyCard5.TabIndex = 5;
             this.pbEnemyCard5.TabStop = false;
+            this.pbEnemyCard5.Click += new System.EventHandler(this.pbEnemyCard5_Click);
             // 
             // pbEnemyCard4
             // 
@@ -230,6 +231,7 @@
             this.pbEnemyCard4.Size = new System.Drawing.Size(100, 127);
             this.pbEnemyCard4.TabIndex = 4;
             this.pbEnemyCard4.TabStop = false;
+            this.pbEnemyCard4.Click += new System.EventHandler(this.pbEnemyCard4_Click);
             // 
             // pbEnemyCard3
             // 
@@ -238,6 +240,7 @@
             this.pbEnemyCard3.Size = new System.Drawing.Size(100, 127);
             this.pbEnemyCard3.TabIndex = 3;
             this.pbEnemyCard3.TabStop = false;
+            this.pbEnemyCard3.Click += new System.EventHandler(this.pbEnemyCard3_Click);
             // 
             // pbEnemyCard2
             // 
@@ -246,6 +249,7 @@
             this.pbEnemyCard2.Size = new System.Drawing.Size(100, 127);
             this.pbEnemyCard2.TabIndex = 2;
             this.pbEnemyCard2.TabStop = false;
+            this.pbEnemyCard2.Click += new System.EventHandler(this.pbEnemyCard2_Click);
             // 
             // pbEnemyCard
             // 
@@ -254,6 +258,7 @@
             this.pbEnemyCard.Size = new System.Drawing.Size(100, 127);
             this.pbEnemyCard.TabIndex = 1;
             this.pbEnemyCard.TabStop = false;
+            this.pbEnemyCard.Click += new System.EventHandler(this.pbEnemyCard_Click);
             // 
             // pbGameBoard
             // 
